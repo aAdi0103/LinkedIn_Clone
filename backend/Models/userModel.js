@@ -1,5 +1,5 @@
-import express from 'express';
 import mongoose from 'mongoose';
+
 const userSchema = new mongoose.Schema({
 
     name:{
@@ -57,7 +57,8 @@ const userSchema = new mongoose.Schema({
             startYear: Number,
             endYear: Number,
         }
-    ],
+    ], 
+    // connections array consiistes of array of objectIDs  refrering to User
     connections: [
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -66,4 +67,7 @@ const userSchema = new mongoose.Schema({
     ]
 
 },{timestamps:true});
+
+const User = mongoose.model("User",userSchema);
+export default User;
 
