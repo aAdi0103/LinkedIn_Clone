@@ -119,7 +119,6 @@ export const createComment = async (req, res) => {
 	}
 };  
 
-
 export const likePost = async (req, res) => {
 	try {
 		const postId = req.params.id;
