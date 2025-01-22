@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { Loader } from "lucide-react";
 
 const SignUpForm = () => {
+
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
@@ -22,6 +23,7 @@ const SignUpForm = () => {
 			queryClient.invalidateQueries({ queryKey: ["authUser"] });
 		},
 		onError: (err) => {
+			console.log("We have an error")
 			toast.error(err.response.data.message || "Something went wrong");
 		},
 	});
