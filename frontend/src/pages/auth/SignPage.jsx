@@ -3,7 +3,7 @@ import SignUpForm from "../../components/auth/SignUpForm";
 
 const SignPage = () => {
 	return (
-		<div className='min-h-screen flex flex-col justify-center sm:px-6 lg:px-8'>
+		<div className='min-h-screen flex flex-col mt-[-8vh] justify-center sm:px-6 lg:px-8'>
 			<div className='sm:mx-auto sm:w-full sm:max-w-md'>
 				<img className='mx-auto h-32 w-auto' src='/logo.svg' alt='LinkedIn' />
 				<h2 className='text-center mt-[-7vh] text-3xl font-extrabold text-gray-900'>
