@@ -1,0 +1,3 @@
+/*
+In home page,
+useQuery is used to fetch data from api 

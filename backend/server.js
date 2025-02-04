@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(
   cors({
     origin:"http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   
 })
@@ -29,8 +30,6 @@ app.use("/api/v1/users",userRoutes);
 app.use("/api/v1/posts",postRoutes);
 app.use("/api/v1/notifications", notificationRoutes);
 app.use("/api/v1/connectionRequest", connectionRequestRoutes);
-
-
 
 
 app.get("/", function (req, res) {

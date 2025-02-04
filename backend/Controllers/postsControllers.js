@@ -4,7 +4,7 @@ import { sendCommentNotificationEmail } from "../../Emails/emailHandler.js";
 
 export const getFeedPosts = async function (req, res) {
   try {
-    const posts = await Post.find({})
+    const posts = await Post.find({author:{$in:[...req.user.connections,req.user.id]}})	
     // .populate() is a method used to replace references (usually ObjectIds) in a document with the actual data from the referenced collection.
       .populate("author", "name username profilePicture headline")
       .populate("comments.user", "name profilePicture")
