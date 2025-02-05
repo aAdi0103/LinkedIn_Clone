@@ -1,5 +1,6 @@
 import connectionRequest from '../Models/connectionRequestModel.js';
 import User from '../Models/userModel.js'
+import Notification from '../Models/notificationModel.js';
 export const sendConnectionRequest =  async (req,res) => {
 
     try {
@@ -70,11 +71,11 @@ export const acceptConnectionRequest = async (req, res) => {
 
 		const notification = new Notification({
 			recipient: request.sender._id,
-			type: "connectionAccepted",
-			relatedUser: userId,
-		});
+			type: "connectionAccepted", 
+			relatedUser: userId, 
+		}); 
 
-		await notification.save();
+		await notification.save(); 
 
 		res.json({ message: "Connection accepted successfully" });
 

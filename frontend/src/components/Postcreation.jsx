@@ -30,6 +30,8 @@ function Postcreation({user}) {
 		},
 	});
 
+
+	
 	const handlePostCreation = async () => {
 		try {
 			const postData = { content };

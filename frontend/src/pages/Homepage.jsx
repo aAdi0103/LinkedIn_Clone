@@ -5,6 +5,7 @@ import Sidebar from '../components/Sidebar';
 import Postcreation from '../components/Postcreation';
 import Post from '../components/Post'
 import { Users } from "lucide-react";
+import RecommendedUsers from '../components/RecommendedUsers'
 
 
 
@@ -12,6 +13,7 @@ const Homepage = () => {
 
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
 
+  // fetched recommended users from authenticated users list
 	const { data: recommendedUsers } = useQuery({
 		queryKey: ["recommendedUsers"],
 		queryFn: async () => {
@@ -20,6 +22,7 @@ const Homepage = () => {
 		},
 	});
 
+	// fetched all posts from the database of uthenticed user
 	const { data: posts } = useQuery({
 		queryKey: ["posts"],
 		queryFn: async () => {
@@ -32,6 +35,7 @@ const Homepage = () => {
   return (
     <div className='grid grid-cols-1 lg:grid-cols-4 gap-6'>
 
+           {/* sidebar  */}
 			<div className='hidden lg:block lg:col-span-1'>
 				<Sidebar user={authUser} />
 			</div>
@@ -57,11 +61,11 @@ const Homepage = () => {
 
 			{recommendedUsers?.length > 0 && (
 				<div className='col-span-1 lg:col-span-1 hidden lg:block'>
-					<div className='bg-secondary rounded-lg shadow p-4'>
+					<div className='bg-white rounded-lg shadow p-4'>
 						<h2 className='font-semibold mb-4'>People you may know</h2>
-						{/* {recommendedUsers?.map((user) => (
-							<RecommendedUser key={user._id} user={user} />
-						))} */}
+						{recommendedUsers?.map((user) => (
+							<RecommendedUsers key={user._id} user={user} />
+						))}
 					</div>
 				</div>
 			)}

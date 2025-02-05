@@ -15,6 +15,8 @@ export const getUserNotifications = async (req, res) => {
 	}
 };
 
+
+
 export const markNotificationAsRead = async (req, res) => {
 	const notificationId = req.params.id;
 	try {

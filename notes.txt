@@ -1,3 +1,5 @@
 /*
-In home page,
-useQuery is used to fetch data from api 
+In home page and app.jsx,
+useQuery is used to fetch data from api, in app.jsx we used useQuery to fetch authenticted data from backed api */
+
+/*Mutation is used to modify and update data in database*\

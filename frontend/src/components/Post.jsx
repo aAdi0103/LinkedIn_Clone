@@ -85,9 +85,10 @@ const Post = ({ post }) => {
 			]);
 		}
 	};
+	
 
 	return (
-		<div className='bg-secondary rounded-lg shadow mb-4'>
+		<div className='bg-white rounded-lg shadow mb-4'>
 			<div className='p-4'>
 				<div className='flex items-center justify-between mb-4'>
 					<div className='flex items-center'>
