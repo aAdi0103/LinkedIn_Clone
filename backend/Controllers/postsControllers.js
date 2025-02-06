@@ -153,3 +153,17 @@ export const likePost = async (req, res) => {
 		res.status(500).json({ message: "Server error" });
 	}
 };
+
+export const getPostById = async (req, res) => {
+	try {
+		const postId = req.params.id;
+		const post = await Post.findById(postId)
+			.populate("author", "name username profilePicture headline")
+			.populate("comments.user", "name profilePicture username headline");
+
+		res.status(200).json(post);
+	} catch (error) {
+		console.error("Error in getPostById controller:", error);
+		res.status(500).json({ message: "Server error" });
+	}
+};

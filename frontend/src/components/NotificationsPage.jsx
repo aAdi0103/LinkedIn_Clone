@@ -16,7 +16,6 @@ const NotificationsPage = () => {
 		queryKey: ["notifications"],
 		queryFn: () => axiosInstance.get("/notifications"),
 	});
-    console.log(notifications)
 
 	const { mutate: markAsReadMutation } = useMutation({
 		mutationFn: (id) => axiosInstance.put(`/notifications/${id}/read`),

@@ -15,9 +15,10 @@ const Navbar = () => {
 
 	const { data: connectionRequests } = useQuery({
 		queryKey: ["connectionRequests"],
-		queryFn: async () => axiosInstance.get("/connectionRequest"),
+		queryFn: async () => axiosInstance.get("/connectionRequest/requests").then((res) => res.data), 
 		enabled: !!authUser,
 	});
+	
 
 	const { mutate: logout } = useMutation({
 		mutationFn: () => axiosInstance.post("/auth/logout"),
@@ -27,7 +28,7 @@ const Navbar = () => {
 	});
 
 	const unreadNotificationCount = notifications?.data.filter((notif) => !notif.read).length;
-	const unreadConnectionRequestsCount = connectionRequests?.data?.length;
+	const unreadConnectionRequestsCount = connectionRequests?.length;
 
 	return (
 		<nav className='bg-[#FFFFFF] shadow-md sticky top-0 z-10'>

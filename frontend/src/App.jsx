@@ -8,6 +8,8 @@ import LoginPage from "./pages/auth/LoginPage";
 import { Toaster } from "react-hot-toast";
 import { axiosInstance } from "./lib/axios";
 import NotificationsPage from './components/NotificationsPage'
+import NetworkPage from './pages/NetworkPage'
+import PostPage from './pages/PostPage'
 
 function App() {
   // fetch authenticated user from api
@@ -44,6 +46,9 @@ function App() {
           element={!authUser ? <LoginPage /> : <Navigate to={"/"} />}
         />
         <Route path='/notifications' element={authUser ? <NotificationsPage /> : <Navigate to={"/login"} />} />
+        <Route path='/network' element={authUser ? <NetworkPage/> : 
+        <Navigate to={"/login"} />} />
+        <Route path='/post/:postId' element={authUser ? <PostPage /> : <Navigate to={"/login"} />} />
       </Routes>
       <Toaster />
     </Layout>
