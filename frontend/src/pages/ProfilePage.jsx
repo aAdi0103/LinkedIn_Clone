@@ -9,7 +9,7 @@ import EducationSection from "../components/EducationSection";
 import SkillsSection from "../components/SkillsSection";
 import toast from "react-hot-toast";
 
-const ProfilePage = () => {
+const 	ProfilePage = () => {
 	const { username } = useParams();
 	const queryClient = useQueryClient();
 
